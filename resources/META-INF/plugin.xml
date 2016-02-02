@@ -1,0 +1,40 @@
+<idea-plugin version="2">
+  <id>pl.poteralski.soreadytohelp</id>
+  <name>SOReadyToHelp</name>
+  <version>1.0</version>
+  <vendor email="poteralski.dev@gmail.com" url="http://www.poteralski.pl">poteralski.pl</vendor>
+
+  <description><![CDATA[
+      It's simple <b>stack overflow helper</b> plugin.<br>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Init.<br>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="143.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <group id="MyPlugin.SampleMenu" text="_Sample Menu" description="Sample menu">
+      <add-to-group group-id="MainMenu" anchor="last"  />
+      <action id="Myplugin.Dialogs" class="pl.poteralski.actions.SOAction2" text="Code snippet" description="#SOReadyToHelp">
+        <add-to-group group-id="EditorPopupMenu"/>
+        <add-to-group group-id="EditorTabPopupMenu"/>
+        <keyboard-shortcut first-keystroke="control alt G" second-keystroke="C" keymap="$default"/>
+      </action>
+    </group>
+  </actions>
+
+</idea-plugin>
