@@ -20,8 +20,10 @@ public class StackOverflowHelper {
         String title = removeHashTagsFromText(selectedText);
         String preparedHashTags = prepareHashTags(getHashTags(selectedText));
         HttpResponse<JsonNode> questionsJson = searchQuestions(title, preparedHashTags);
-        Integer bestQuestionId = questionsJson.getBody().getObject().getJSONArray("items").getJSONObject(0).getInt("question_id");
-        return String.valueOf(bestQuestionId);
+        String bestQuestionLink = questionsJson.getBody().getObject().getJSONArray("items").getJSONObject(0).getString("link");
+        StackOverflowParser parser = new StackOverflowParser();
+        parser.parse(bestQuestionLink);
+        return parser.getBestAnswer();
     }
 
     private HttpResponse<JsonNode> searchQuestions(String title, String preparedTags) throws UnirestException {
