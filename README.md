@@ -4,11 +4,11 @@
 
 It's simple stack overflow helper plugin. 
 
-Paste code from StackOverflow search result directly into IntellijIDEA, Android-Studio, PyCharm etc
+Paste code from StackOverflow search result directly into IntellijIDEA, Android-Studio, PyCharm etc.
 
 ### Usage:
 
-1. Type searc phrase (U can use hashtags)
+1. Type and select search phrase (U can use hashtags)
 2. Pres ctrl+G, C
 
 ### Demo:
