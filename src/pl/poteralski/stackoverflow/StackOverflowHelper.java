@@ -19,15 +19,16 @@ public class StackOverflowHelper {
     public String getSnippet(String selectedText) throws UnirestException {
         String title = removeHashTagsFromText(selectedText);
         String preparedHashTags = prepareHashTags(getHashTags(selectedText));
-        HttpResponse<JsonNode> jsonArray = makeHttpRequest(title, preparedHashTags);
-        return jsonArray.getBody().getArray().toString();
+        HttpResponse<JsonNode> questionsJson = searchQuestions(title, preparedHashTags);
+        Integer bestQuestionId = questionsJson.getBody().getObject().getJSONArray("items").getJSONObject(0).getInt("question_id");
+        return String.valueOf(bestQuestionId);
     }
 
-    private HttpResponse<JsonNode> makeHttpRequest(String title, String preparedTags) throws UnirestException {
-        return Unirest.get(StackExchangeUri.API_URL)
+    private HttpResponse<JsonNode> searchQuestions(String title, String preparedTags) throws UnirestException {
+        return Unirest.get(StackExchangeUri.URL_SEARCH_QUESTIONS)
             .queryString(StackExchangeUri.SITE, StackExchangeUri.SITE_SO)
             .queryString(StackExchangeUri.ORDERING, StackExchangeUri.ORDERING_DESC)
-            .queryString(StackExchangeUri.SORT, StackExchangeUri.SORT_ACTIVITY)
+            .queryString(StackExchangeUri.SORT, StackExchangeUri.SORT_RELEVANCE)
             .queryString(StackExchangeUri.ACCEPTED, StackExchangeUri.ACCEPTED_TRUE)
             .queryString(StackExchangeUri.TAGGED, preparedTags)
             .queryString(StackExchangeUri.TITLE, title)

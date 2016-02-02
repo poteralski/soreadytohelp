@@ -10,5 +10,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="com.mashape.unirest:unirest-java:1.4.7" level="application" />
+    <orderEntry type="library" name="org.jsoup:jsoup:1.8.3" level="application" />
   </component>
 </module>
