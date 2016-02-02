@@ -3,6 +3,7 @@
 ### Overview:
 
 It's simple stack overflow helper plugin. 
+
 Paste code from StackOverflow search result directly into IntellijIDEA, Android-Studio, PyCharm etc
 
 ### Usage:
