@@ -27,9 +27,9 @@
   </extensions>
 
   <actions>
-    <group id="MyPlugin.SampleMenu" text="_Sample Menu" description="Sample menu">
+    <group id="MyPlugin.SampleMenu" text="_Sample Menu" description="#SOReadyToHelp">
       <add-to-group group-id="MainMenu" anchor="last"  />
-      <action id="Myplugin.Dialogs" class="pl.poteralski.actions.SOAction2" text="Code snippet" description="#SOReadyToHelp">
+      <action id="Myplugin.Dialogs" class="pl.poteralski.actions.SOAction2" text="Best Answer" description="#SOReadyToHelp">
         <add-to-group group-id="EditorPopupMenu"/>
         <add-to-group group-id="EditorTabPopupMenu"/>
         <keyboard-shortcut first-keystroke="control alt G" second-keystroke="C" keymap="$default"/>
